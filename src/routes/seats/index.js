@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
 
 import "./style.css";
@@ -51,7 +51,17 @@ export default function Seats() {
 
         setSeats([...SeatsNew])
     }
-
+  
+console.log(name)
+console.log(CPF)
+function Sucesso(){
+    useNavigate("/sucesso", {
+        state: {
+            assentos: seats.numeros,
+            comprador: { nome: name, cpf: CPF }
+        }
+    })
+}
 
     return (
         <>
@@ -89,15 +99,15 @@ export default function Seats() {
                     <div className="inputs">
                         <div>
                             <h2>Nome do comprador:</h2>
-                            <input className="nome" type="text" name="name" placeholder="Digite seu nome..." />
+                            <input  className="nome" type="text" name="name" onChange={(e) => setName(e.target.value) } placeholder="Digite seu nome..." />
                         </div>
                         <div>
                             <h2>Nome do comprador:</h2>
-                            <input className="nome" type="text" name="name" placeholder="Digite seu CPF..." />
+                            <input className="nome" type="text" name="name"   onChange={(e) => setCPF(e.target.value) } placeholder="Digite seu CPF..." />
                         </div>
-                         <button>
-                         <h2>Reservar assento(s)</h2>
-                         </button>
+                        <button>
+                            <h2 onClick={Sucesso}>Reservar assento(s)</h2>
+                        </button>
                     </div>
                 </div>
 
