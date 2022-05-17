@@ -32,17 +32,17 @@ export default function Seats(){
     })
 
     console.log(assento)
-    function tapSeat (idSeat) {
+    function tapSeat (indexSeat) {
         let SeatsNew = assento.map((value, index) => {
-            if (index === idSeat) {
+            if (index   === parseInt(indexSeat) - 1 ) {
                 return {
                     ...value,
-                    tap: true,
+                    isAvailable:true
                 }
             } else {
                 return {
-                    ...value,
-                    tap: false,
+                    ...value,  
+                    
                 }
             }
         })
@@ -58,9 +58,12 @@ export default function Seats(){
         </div>
         <div   className="assentos">
             
-                {assento.map((e , index) => {
+                {seats.map((e , index) => {
                     return (
-                        <p onClick={tapSeat} className="botao">{e.name}</p>
+                          (e.isAvailable === true) ? 
+                          <p onClick={() => tapSeat(e.name)} key={index} className="selected">{e.name}</p>
+                          :
+                          <p onClick={() => tapSeat(e.name)} key={index} className="botao">{e.name}</p>
                     )
                 })}
 
