@@ -30,3 +30,36 @@
     letter-spacing: 0.02em;
     color: #293845;
 }
+footer{
+    position: fixed;
+      background-color: #DFE6ED;
+      bottom: 0;
+      width: 100%;
+      height: 117px;
+      z-index: 1;
+      display: flex;
+      
+      
+    }        
+.tamanho-filme{
+width:64px;
+height: 89px;
+}
+.flexionar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulo{
+    margin-left: 15px;
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 26px;
+line-height: 30px;
+display: flex;
+align-items: center;
+
+color: #293845;
+
+}
