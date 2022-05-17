@@ -1,0 +1,16 @@
+header{
+    width: 100vw;
+    height: 67px;
+    background-color: #C3CFD9;
+   position: fixed;
+   z-index: 1;
+   top: 0;
+
+}
+.letra{
+display: flex;
+justify-content: center;
+margin-top: 20px;
+font-size: 34px;
+color: #E8833A;
+}

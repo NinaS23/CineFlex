@@ -1,0 +1,38 @@
+.afastar{
+    margin-top: 30%;
+    
+  }
+  .sub-titulo{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #293845;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18%;
+    }
+    .letter{
+       width: 374px;
+       height: 110px;
+    }
+    .movies{
+        display: flex;
+        flex-wrap: wrap;
+       justify-content: center;
+        align-items: center;
+    }
+    .filmes{
+        height: 210px;
+        width: 145px;
+    }
+    .imagem{
+        width: 129px;
+        height: 193px;
+    }
