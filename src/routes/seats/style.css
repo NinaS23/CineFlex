@@ -79,3 +79,45 @@
     align-items: center;
     margin-left: 7px;
   }
+
+  .inputs{
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nome{
+    margin-top: 5px;
+    width: 324px;
+    height: 51px;
+    border-radius: 3px;
+    background: #FFFFFF;
+    border: 1px solid #D5D5D5;
+}
+input::placeholder{
+   font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #AFAFAF;
+
+}
+.comprador-cpf{
+    margin-top: 10px;
+}
+.clicar{
+    width: 225px;
+    height: 42px;
+    left: 72px;
+    top: 688px;
+    
+    background: #E8833A;
+    border-radius: 3px;
+    
+}
+main{
+    overflow: auto;
+}

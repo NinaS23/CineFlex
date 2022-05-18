@@ -1,0 +1,123 @@
+.afastar{
+    margin-top: 30%;
+    
+  }
+  header{
+    width: 100%;
+    height: 67px;
+    background-color: #C3CFD9;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+.letra{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 34px;
+    color: #E8833A;
+    }
+    .sub-titulo{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #293845;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18%;
+    }
+    .verde{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.04em;
+        
+        color: #247A6B;
+        
+        }
+        .verde-espacamento{
+            width: 374px;
+            height: 110px;
+        }
+        .finalizar{
+            margin-left: 7%;
+        }
+        .letra-bonita{
+            font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.04em;
+        
+        color: #293845;
+        
+        }
+        .info-final{
+            margin-top: 3%;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 26px;
+            letter-spacing: 0.04em;
+        
+        color:#293845;
+        
+        }
+        .ingresso{
+            margin-top: 10%;
+        }
+        .comprador-ingresso{
+            margin-top: 10%; 
+        }
+        .centralizar{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #E8833A;
+            width: 225px;
+            height: 42px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 23%;
+        }
+        .centralizar h2{
+        
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        letter-spacing: 0.04em;
+        
+        color: #FFFFFF;
+        }        
+        button{
+            position: absolute;
+width: 225px;
+height: 42px;
+left: 74px;
+top: 622px;
+
+background: #E8833A;
+border-radius: 3px;
+        }
+     .empurrar{
+         display: flex;
+         justify-content: center;
+     }

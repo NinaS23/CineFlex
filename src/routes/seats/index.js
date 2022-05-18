@@ -9,22 +9,42 @@ import "./style.css";
 export default function Seats() {
     const { idSessao } = useParams();
     console.log("idSessao", idSessao)
+    const navigate = useNavigate();
+    const [selectedSeat , setSelectedSeat] = useState("")
+    const [filme , setFilme] = useState([])
     const [seats, setSeats] = useState([])
     const [name , setName] = useState("")
     const [CPF, setCPF] = useState("")
-    const [cor , setCor] = useState("botao")
+    const [session, setSession] = useState({
+        movie: {},
+        day: {},
+        seats: [],
+        time: ''
+    });
+    
     useEffect(() => {
 
         const requisicao = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
         requisicao.then(resposta => {
+            setSession({...session, 
+                movie: resposta.data.movie,
+                day: resposta.data.day,
+                seats: resposta.data.seats,
+                time: resposta.data.name});
+    
             console.log(resposta.data.seats)
             setSeats(resposta.data.seats)
+            console.log(resposta.data.movie)
+            setFilme(resposta.data.movie)
 
 
         });
         requisicao.catch(err => console.log(err.resposta))
 
     }, []);
+
+   
+ 
     console.log(seats)
     let assento = seats.map(seat => {
         return {
@@ -38,7 +58,7 @@ export default function Seats() {
     function tapSeat(indexSeat) {
         let SeatsNew = assento.map((value, index) => {
             if (index === parseInt(indexSeat) - 1) {
-                setCor("azul")
+               
                 return {
                    
                     ...value,
@@ -53,20 +73,45 @@ export default function Seats() {
                 }
             }
         })
-       
+        setSelectedSeat([...selectedSeat , indexSeat])
         setSeats([...SeatsNew])
     }
   
 console.log(name)
 console.log(CPF)
-function Sucesso(){
-    useNavigate("/sucesso", {
-        state: {
-            assentos: seats.numeros,
-            comprador: { nome: name, cpf: CPF }
-        }
-    })
+
+function EnviarInfo() {
+    const promise = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", { ids: selectedSeat, name: name, cpf: CPF })
+    promise.then(Sucesso)
+    promise.catch(Error)
 }
+
+
+function Error(erro){
+    alert("deu erro ao enviar as informações , sinto muito , tente novamente")
+    console.log(erro)
+}
+
+
+function Sucesso(resposta){
+    if(name !== "" && CPF !== ""){
+        navigate("/sucesso", {
+            state: {
+                assentos: [...seats],
+                comprador: { nome: name, cpf: CPF },
+                movie: session.movie.title,
+                time: session.time,
+                date: session.day.date,
+                name: name,
+                cpf: CPF
+            }
+    })
+}else{
+    alert("preencha os dados corretamente")
+}
+}
+
+
 
     return (
         <>
@@ -115,14 +160,23 @@ function Sucesso(){
                         </div>
                         <div>
                             <h2>Nome do comprador:</h2>
-                            <input className="nome" type="text" name="name"   onChange={(e) => setCPF(e.target.value) } placeholder="Digite seu CPF..." />
+                            <input className="nome" type="text" name="name" onChange={(e) => setCPF(e.target.value)} placeholder="Digite seu CPF..." />
                         </div>
-                        <button>
-                            <h2 onClick={Sucesso}>Reservar assento(s)</h2>
-                        </button>
+
+                    </div>
+                    <div className='centralizar'>
+                        <div onClick={EnviarInfo} className='clicar central empurrar'><h2>Reservar assento(s)</h2></div>
                     </div>
                 </div>
 
+                <footer>
+                    <div className="flexionar">
+                        <img className="tamanho-filme" src={filme.posterURL} alt={filme.overview} />
+                        <div className="titulo">
+                            {filme.title}
+                        </div>
+                    </div>
+                </footer>
             </main>
 
         </>
