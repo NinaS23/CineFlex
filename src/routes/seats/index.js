@@ -12,7 +12,7 @@ export default function Seats() {
     const [seats, setSeats] = useState([])
     const [name , setName] = useState("")
     const [CPF, setCPF] = useState("")
-    const [cor , setCor] = useState(false)
+    const [cor , setCor] = useState("botao")
     useEffect(() => {
 
         const requisicao = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
@@ -38,10 +38,13 @@ export default function Seats() {
     function tapSeat(indexSeat) {
         let SeatsNew = assento.map((value, index) => {
             if (index === parseInt(indexSeat) - 1) {
+                setCor("azul")
                 return {
+                   
                     ...value,
                     isAvailable: "selected",
-                    
+                   
+                  
                 }
             } else {
                 return {
@@ -50,7 +53,7 @@ export default function Seats() {
                 }
             }
         })
-
+       
         setSeats([...SeatsNew])
     }
   
@@ -74,12 +77,19 @@ function Sucesso(){
                 <div className="assentos">
 
                     {seats.map((e, index) => {
-                        return (
-                            (e.isAvailable === true) ?
+                         if(e.isAvailable === true){
+                            return(
                                 <p onClick={() => tapSeat(e.name)} key={index} className="selected">{e.name}</p>
-                                :
+                            )
+                        }else if(e.isAvailable === "selected"){
+                            return(
+                                <p onClick={() => tapSeat(e.name)} key={index} className="azul">{e.name}</p>
+                            )
+                            }else{
+                              return(
                                 <p onClick={() => tapSeat(e.name)} key={index} className="botao">{e.name}</p>
-                        )
+                              )
+                            }
                     })}
 
                     <div className="selecao" >

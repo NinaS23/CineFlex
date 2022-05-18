@@ -69,3 +69,13 @@
     margin-top: 30%;
     
   }
+  .azul{
+    background-color: var(--cor-azul);
+    width: 26px;
+    height: 26px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7px;
+  }
