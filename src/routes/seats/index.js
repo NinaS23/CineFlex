@@ -12,6 +12,7 @@ export default function Seats() {
     const [seats, setSeats] = useState([])
     const [name , setName] = useState("")
     const [CPF, setCPF] = useState("")
+    const [cor , setCor] = useState(false)
     useEffect(() => {
 
         const requisicao = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
@@ -28,7 +29,7 @@ export default function Seats() {
     let assento = seats.map(seat => {
         return {
             ...seat,
-            tap: false,
+            tap: 0,
 
         }
     })
@@ -39,7 +40,8 @@ export default function Seats() {
             if (index === parseInt(indexSeat) - 1) {
                 return {
                     ...value,
-                    isAvailable: true
+                    isAvailable: "selected",
+                    
                 }
             } else {
                 return {
