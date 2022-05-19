@@ -49,7 +49,7 @@ export default function Seats() {
     let assento = seats.map(seat => {
         return {
             ...seat,
-            tap: 0,
+            t: false,
 
         }
     })
@@ -69,6 +69,31 @@ export default function Seats() {
             } else {
                 return {
                     ...value,
+              
+ 
+
+                }
+            }
+        })
+        setSelectedSeat([...selectedSeat , indexSeat])
+        setSeats([...SeatsNew])
+    }
+    function RemoveSeats(indexSeat) {
+        let SeatsNew = assento.map((value, index) => {
+            if (index === parseInt(indexSeat) - 1) {
+               
+                return {
+                   
+                    ...value,
+                    isAvailable: false,
+                   
+                  
+                }
+            } else {
+                return {
+                    ...value,
+              
+ 
 
                 }
             }
@@ -110,7 +135,9 @@ function Sucesso(resposta){
     alert("preencha os dados corretamente")
 }
 }
-
+function Indisponível(){
+    alert("este assento está indisponivel")
+}
 
 
     return (
@@ -124,11 +151,11 @@ function Sucesso(resposta){
                     {seats.map((e, index) => {
                          if(e.isAvailable === true){
                             return(
-                                <p onClick={() => tapSeat(e.name)} key={index} className="selected">{e.name}</p>
+                                <p onClick={Indisponível} key={index} className="selected">{e.name}</p>
                             )
                         }else if(e.isAvailable === "selected"){
                             return(
-                                <p onClick={() => tapSeat(e.name)} key={index} className="azul">{e.name}</p>
+                                <p onClick={() => RemoveSeats(e.name)} key={index} className="azul">{e.name}</p>
                             )
                             }else{
                               return(
