@@ -9,7 +9,7 @@ export default function Sucesso() {
 
         <div className="afastar">
             <div className="sub-titulo">
-                <h2 className="verde">Pedido feito com sucesso!</h2>
+                <h2 className="verde ">Pedido feito com sucesso!</h2>
             </div>
             <div className="finalizar">
                 <div className="fime-sessao">

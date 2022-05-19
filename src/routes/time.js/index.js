@@ -38,8 +38,8 @@ export default function Time() {
             <div>
                 <h2>Selecione o Horário</h2>
             </div>
-            <div className="horario-filmes">
-                <h1>Selecione seu horário</h1>
+            <div className="horario-filmes ">
+                <h1 className="embelezar">Selecione seu horário</h1>
             </div>
             <div className="data">
                 <>

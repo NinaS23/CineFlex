@@ -26,7 +26,7 @@ export default function Movie(){
             requisicao.catch(err => console.log(err.resposta))
         }, []);
         console.log(filmes)
-
+if(filmes.length !== 0){
         return(
         <>
             <div className="afastar">
@@ -40,6 +40,7 @@ export default function Movie(){
                         id={filme.id}
                         url={filme.posterURL}
                         title={filme.title}
+                        key={filme.id}
                         
                         />
                       )
@@ -48,4 +49,11 @@ export default function Movie(){
             </div>
         </>
     )
+}
+
+if(filmes.length === 0){
+    return(
+    <>...</>
+    )
+}
 }

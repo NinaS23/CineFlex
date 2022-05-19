@@ -119,5 +119,46 @@ input::placeholder{
     
 }
 main{
-    overflow: auto;
+     margin-top: 25%;
+    overflow-y: auto;
+}
+.alert{
+    width: 65px;
+height: 28px;
+left: 159px;
+top: 402px;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+display: flex;
+align-items: center;
+letter-spacing: -0.013em;
+
+color: #4E5A65;
+
+}
+.embelezar{
+    width: 374px;
+height: 110px;
+left: 0px;
+top: 67px;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 28px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.04em;
+
+color: #293845;
+}
+.flex{
+   padding-left:20%;
+  
 }
