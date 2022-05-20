@@ -109,7 +109,8 @@ export default function Seats() {
     console.log(name)
     console.log(CPF)
 
-    function EnviarInfo() {
+    function EnviarInfo(event) {
+      
         const promise = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", { ids: selectedSeat, name: name, cpf: CPF })
         promise.then(Sucesso)
         promise.catch(Error)
@@ -122,8 +123,10 @@ export default function Seats() {
     }
 
 
-    function Sucesso(resposta) {
+    function Sucesso(resposta , event ) {
+        
         if (name !== "" && CPF !== "") {
+            
             navigate("/sucesso", {
                 state: {
                     assentos: [...seats],
@@ -143,12 +146,7 @@ export default function Seats() {
         alert("este assento está indisponivel")
     }
 
-    if (seats.length === 0) {
-        return (
-            <h1>Carregando ...</h1>
-        )
-    }
-    if (seats.length !== 0) {
+ 
 
         return (
             <>
@@ -190,15 +188,15 @@ export default function Seats() {
                                 <h3 className="alert">Indisponível</h3>
                             </div>
                         </div>
-                        <div className='rolagem'>
+                        
                             <div className="inputs">
                                 <div>
                                     <h2>Nome do comprador:</h2>
-                                    <input className="nome" type="text" name="name" onChange={(e) => setName(e.target.value)} placeholder="Digite seu nome..." />
+                                    <input className="nome" type="text" value={name} name="name" onChange={(e) => setName(e.target.value)} placeholder="Digite seu nome..." />
                                 </div>
                                 <div>
                                     <h2>Nome do comprador:</h2>
-                                    <input className="nome" type="text" name="name" onChange={(e) => setCPF(e.target.value)} placeholder="Digite seu CPF..." />
+                                    <input className="nome" type="text" value={CPF}name="name" onChange={(e) => setCPF(e.target.value)} placeholder="Digite seu CPF..." />
                                 </div>
 
                             </div>
@@ -206,7 +204,7 @@ export default function Seats() {
                                 <div onClick={EnviarInfo} className='clicar central empurrar'><h2>Reservar assento(s)</h2></div>
                             </div>
                         </div>
-                    </div>
+                 
                     <footer>
                         <div className="flexionar">
                             <img className="tamanho-filme" src={filme.posterURL} alt={filme.overview} />
@@ -220,4 +218,3 @@ export default function Seats() {
             </>
         )
     }
-}
